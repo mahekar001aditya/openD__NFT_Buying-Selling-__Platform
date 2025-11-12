@@ -77,41 +77,42 @@ dfx start --clean
 
 ---
 
-⚙️ Useful DFX Commands
-🔹 Check NFT Details
+## ⚙️ Useful DFX Commands
+## 🔹 Check NFT Details
 ```bash
 dfx canister call nft getName
 dfx canister call nft getOwner
 dfx canister call nft getAsset
 ```
 
+
+## 🔹 Retrieve Canister IDs
 ```bash
-🔹 Retrieve Canister IDs
 dfx canister id nft
 dfx canister id opend
 dfx canister id opend_assets
 ```
-💰 Listing and Selling NFTs
+## 💰 Listing and Selling NFTs
 
 
-List NFT for Sale
+## List NFT for Sale
 ```bash
 dfx canister call opend listItem '(principal "rrkah-fqaaa-aaaaa-aaaaq-cai", 2)'
 ```
 
-Transfer Ownership to Marketplace
+## Transfer Ownership to Marketplace
 ```bash
 dfx canister call rrkah-fqaaa-aaaaa-aaaaq-cai transferOwnership '(principal "ryjl3-tyaaa-aaaaa-aaaba-cai", true)'
 ```
 
-Confirm Listing on Frontend
+## Confirm Listing on Frontend
 
 * Enter your price (in JELLY tokens)
 
 * Click Confirm
 
 
-🧠 Technologies Used
+## 🧠 Technologies Used
 
 * Motoko – Smart contract language for ICP
 
@@ -124,7 +125,7 @@ Confirm Listing on Frontend
 * JELLY Token – Used for NFT pricing
 
 
-# Creating NFT for Testing
+## Creating NFT for Testing
 
 1. Mint an NFT on the command line to get NFT into mapOfNFTs:
 
@@ -150,7 +151,7 @@ dfx canister id opend
 dfx canister call <REPLACE WITH NFT CANISTER ID> transferOwnership '(principal "<REPLACE WITH OPEND CANISTER ID>", true)'
 ```
 
-# Conneting to the Token Canister
+## Conneting to the Token Canister
 
 1. Copy over the token declarations folder
 
