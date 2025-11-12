@@ -1,100 +1,128 @@
-Copyright 2022 London App Brewery LTD (www.appbrewery.com)
+# 🖼️ OpenD – Decentralized NFT Marketplace
 
-The code in this tutorial project is licended under the Apache License, Version 2.0 (the "License");
-you may not use this project except in compliance with the License.
-You may obtain a copy of the License at
+**OpenD** is a decentralized NFT marketplace built on the **Internet Computer (ICP)**.  
+It allows users to mint, list, and sell NFTs seamlessly using Motoko smart contracts.
 
-    http://www.apache.org/licenses/LICENSE-2.0
+---
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+## 🚀 Project Overview
 
-Here is the TL;DR version of the above licence:
-https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)
+| Feature | Description |
+|----------|--------------|
+| **Name** | OpenD (CryptoDunks NFT Marketplace) |
+| **Frontend** | React + ICP Assets Canister |
+| **Backend (Marketplace Logic)** | Motoko Smart Contract (`opend`) |
+| **NFT Logic** | Motoko Smart Contract (`nft`) |
+| **Token Integration** | Dang Token (for pricing NFTs) |
 
-# To Install and Run the Project
+---
 
-1. start local dfx
+## 📦 Canister Details
 
-```
+| Canister | Canister ID | Purpose |
+|-----------|--------------|----------|
+| **nft** | `rrkah-fqaaa-aaaaa-aaaaq-cai` | Stores NFT logic (mint, transfer, metadata). |
+| **opend** | `ryjl3-tyaaa-aaaaa-aaaba-cai` | Backend marketplace logic. |
+| **opend_assets** | `r7inp-6aaaa-aaaaa-aaabq-cai` | React frontend served to browser. |
+
+---
+
+## 👤 Developer Identity
+
+Principal ID: okwwr-vkfpp-ctjax-3ia63-sz6js-4qysc-hz5gp-4vkfw-4442b-7aisf-fqe
+
+
+## 🧩 Installation and Setup
+
+### 1️⃣ Start the Local ICP Replica
+
+```bash
 dfx start --clean
 ```
 
-2. Run NPM server
-
+2️⃣ Deploy the Canisters
+```bash
+    dfx deploy --argument='("CryptoDunks #123", principal "okwwr-vkfpp-ctjax-3ia63-sz6js-4qysc-hz5gp-4vkfw-4442b-7aisf-fqe", (vec {137; 80; 78; 71; 13; 10; 26; 10; 0; 0; 0; 13; 73; 72; 68; 82; 0; 0; 0; 10; 0; 0; 0; 10; 8; 6; 0; 0; 0; 141; 50; 207; 189; 0; 0; 0; 1; 115; 82; 71; 66; 0; 174; 206; 28; 233; 0; 0; 0; 68; 101; 88; 73; 102; 77; 77; 0; 42; 0; 0; 0; 8; 0; 1; 135; 105; 0; 4; 0; 0; 0; 1; 0; 0; 0; 26; 0; 0; 0; 0; 0; 3; 160; 1; 0; 3; 0; 0; 0; 1; 0; 1; 0; 0; 160; 2; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 160; 3; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 0; 0; 0; 0; 59; 120; 184; 245; 0; 0; 0; 113; 73; 68; 65; 84; 24; 25; 133; 143; 203; 13; 128; 48; 12; 67; 147; 94; 97; 30; 24; 0; 198; 134; 1; 96; 30; 56; 151; 56; 212; 85; 68; 17; 88; 106; 243; 241; 235; 39; 42; 183; 114; 137; 12; 106; 73; 236; 105; 98; 227; 152; 6; 193; 42; 114; 40; 214; 126; 50; 52; 8; 74; 183; 108; 158; 159; 243; 40; 253; 186; 75; 122; 131; 64; 0; 160; 192; 168; 109; 241; 47; 244; 154; 152; 112; 237; 159; 252; 105; 64; 95; 48; 61; 12; 3; 61; 167; 244; 38; 33; 43; 148; 96; 3; 71; 8; 102; 4; 43; 140; 164; 168; 250; 23; 219; 242; 38; 84; 91; 18; 112; 63; 0; 0; 0; 0; 73; 69; 78; 68; 174; 66; 96; 130;}))'
 ```
-npm start
-```
+3️⃣ Run the Frontend Server
 
-3. Deploy canisters
+```bash
 
-```
-dfx deploy --argument='("CryptoDunks #123", principal "gbdev-tyqsv-hnvqv-7mgz4-4kcfl-wbv6x-6khez-y56gq-uohqs-quomc-uqe", (vec {137; 80; 78; 71; 13; 10; 26; 10; 0; 0; 0; 13; 73; 72; 68; 82; 0; 0; 0; 10; 0; 0; 0; 10; 8; 6; 0; 0; 0; 141; 50; 207; 189; 0; 0; 0; 1; 115; 82; 71; 66; 0; 174; 206; 28; 233; 0; 0; 0; 68; 101; 88; 73; 102; 77; 77; 0; 42; 0; 0; 0; 8; 0; 1; 135; 105; 0; 4; 0; 0; 0; 1; 0; 0; 0; 26; 0; 0; 0; 0; 0; 3; 160; 1; 0; 3; 0; 0; 0; 1; 0; 1; 0; 0; 160; 2; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 160; 3; 0; 4; 0; 0; 0; 1; 0; 0; 0; 10; 0; 0; 0; 0; 59; 120; 184; 245; 0; 0; 0; 113; 73; 68; 65; 84; 24; 25; 133; 143; 203; 13; 128; 48; 12; 67; 147; 94; 97; 30; 24; 0; 198; 134; 1; 96; 30; 56; 151; 56; 212; 85; 68; 17; 88; 106; 243; 241; 235; 39; 42; 183; 114; 137; 12; 106; 73; 236; 105; 98; 227; 152; 6; 193; 42; 114; 40; 214; 126; 50; 52; 8; 74; 183; 108; 158; 159; 243; 40; 253; 186; 75; 122; 131; 64; 0; 160; 192; 168; 109; 241; 47; 244; 154; 152; 112; 237; 159; 252; 105; 64; 95; 48; 61; 12; 3; 61; 167; 244; 38; 33; 43; 148; 96; 3; 71; 8; 102; 4; 43; 140; 164; 168; 250; 23; 219; 242; 38; 84; 91; 18; 112; 63; 0; 0; 0; 0; 73; 69; 78; 68; 174; 66; 96; 130;}))'
-```
-
-4. Head to localhost
-
-http://localhost:8080/
-
-# Minter Else HTML
-
-```
- <div className="minter-container">
-        <h3 className="Typography-root makeStyles-title-99 Typography-h3 form-Typography-gutterBottom">
-          Minted!
-        </h3>
-        <div className="horizontal-center">
-        </div>
-      </div>
-
+    npm start
 ```
 
-# Loader HTML
+### 4️⃣ Open in Browser
 
-```
-<div className="lds-ellipsis">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-```
+[http://localhost:8080/](http://localhost:8080/)
 
-# Button HTML
+---
 
-```
-<div className="Chip-root makeStyles-chipBlue-108 Chip-clickable">
-            <span
-              onClick={}
-              className="form-Chip-label"
-            >
-              Sell
-            </span>
-            </div>
-```
+## 🖼️ Preview – App Screenshots
 
-# Price Input HTML
+| NFT Mint Page | NFT Minted Page |
+|:--:|:--:|
+| ![NFT Mint Page](imgg/nft1.png) | ![NFT Minted Page](imgg/nft2.png) |
 
-```
-<input
-        placeholder="Price in DANG"
-        type="number"
-        className="price-input"
-        value={}
-        onChange={}
-      />
+| NFT Listing Page | My NFTs Page |
+|:--:|:--:|
+| ![NFT Listing Page](imgg/nft3.png) | ![My NFTs Page](imgg/nft4.png) |
+
+| NFT Sell Confirmation | Discover NFTs |
+|:--:|:--:|
+| ![NFT Sell Confirmation](imgg/nft5.png) | ![Discover NFTs](imgg/nft6.png) |
+
+| CryptoDunks Banner |   |
+|:--:|:--:|
+| ![CryptoDunks Banner](imgg/nft7.png) |   |
+
+---
+
+⚙️ Useful DFX Commands
+🔹 Check NFT Details
+```bash
+dfx canister call nft getName
+dfx canister call nft getOwner
+dfx canister call nft getAsset
 ```
 
-# Price Label HTML
+```bash
+🔹 Retrieve Canister IDs
+dfx canister id nft
+dfx canister id opend
+dfx canister id opend_assets
+```
+💰 Listing and Selling NFTs
 
+
+List NFT for Sale
+```bash
+dfx canister call opend listItem '(principal "rrkah-fqaaa-aaaaa-aaaaq-cai", 2)'
 ```
-<div className="disButtonBase-root disChip-root makeStyles-price-23 disChip-outlined">
-          <span className="disChip-label">23 DANG</span>
-        </div>
+
+Transfer Ownership to Marketplace
+```bash
+dfx canister call rrkah-fqaaa-aaaaa-aaaaq-cai transferOwnership '(principal "ryjl3-tyaaa-aaaaa-aaaba-cai", true)'
 ```
+
+Confirm Listing on Frontend
+
+* Enter your price (in JELLY tokens)
+
+* Click Confirm
+
+
+🧠 Technologies Used
+
+* Motoko – Smart contract language for ICP
+
+* React.js – Frontend Framework
+
+* Internet Identity / Principal – User authentication
+
+* ICP Canisters – For deploying modular services
+
+* JELLY Token – Used for NFT pricing
+
 
 # Creating NFT for Testing
 
