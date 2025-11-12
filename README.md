@@ -59,19 +59,19 @@ dfx start --clean
 
 ## 🖼️ Preview – App Screenshots
 
-| NFT Mint Page | NFT Minted Page |
+| NFT Market Place Home Page | Discover Page|
 |:--:|:--:|
 | ![NFT Mint Page](imgg/nft1.png) | ![NFT Minted Page](imgg/nft2.png) |
 
-| NFT Listing Page | My NFTs Page |
+| NFT Listing Page | NFT Listing Page [Loading] |
 |:--:|:--:|
 | ![NFT Listing Page](imgg/nft3.png) | ![My NFTs Page](imgg/nft4.png) |
 
-| NFT Sell Confirmation | Discover NFTs |
+| My NFT | NFT Selling |
 |:--:|:--:|
 | ![NFT Sell Confirmation](imgg/nft5.png) | ![Discover NFTs](imgg/nft6.png) |
 
-| CryptoDunks Banner |   |
+| Sold NFT from my collections |   |
 |:--:|:--:|
 | ![CryptoDunks Banner](imgg/nft7.png) |   |
 
